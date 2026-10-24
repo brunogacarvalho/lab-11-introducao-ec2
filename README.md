@@ -58,29 +58,29 @@ Além das atividades principais, foram realizados experimentos para investigar o
 
 ### 5.1. Alteração do User Data após a criação da instância
 
-Após criar a instância EC2, editei o User Data para incluir meu nome na página inicial do servidor. Porém, a alteração não apareceu após reiniciar a instância, pois o User Data não é executado novamente por padrão em cada reinicialização.
+Após criar a instância EC2, editei o User Data para personalizar a página inicial do servidor, exibindo meu nome, **“Bruno Carvalho”**, e a mensagem **“Meu servidor Web na AWS”**. Porém, mesmo após reiniciar a instância, a página continuou exibindo o conteúdo anterior.
 
-Para resolver o problema, acessei a instância remotamente pelo PuTTY, utilizando SSH, e alterei diretamente o arquivo HTML servido pelo Apache.
+Para investigar e resolver o problema, acessei a instância remotamente pelo PuTTY, utilizando SSH, e alterei diretamente o arquivo HTML servido pelo Apache.
 
-**Método 1: edição com Nano**
+**Método 1: edição manual com Nano**
 
 ```bash
 sudo nano /var/www/html/index.html
 ```
 
-Esse comando abre o arquivo HTML para edição manual. Após modificar o conteúdo, utilizei os comandos de teclado do Nano para salvar o arquivo e sair do editor.
+O comando abre o arquivo HTML para edição manual.
 
-**Método 2: gravação com Echo e Tee**
+**Método 2: gravação direta com Echo e Tee**
 
 ```bash
-echo '<html><h1>Olá, eu sou Bruno Carvalho.</h1></html>' | sudo tee /var/www/html/index.html
+echo '<html><h1>Bruno Carvalho</h1><p>Meu servidor Web na AWS</p></html>' | sudo tee /var/www/html/index.html
 ```
 
-Esse método grava diretamente o conteúdo no arquivo. O `echo` fornece o texto, o pipe (`|`) encaminha esse texto para o `tee`, e o `sudo` permite gravar no diretório protegido do servidor.
+Esse comando grava o HTML diretamente no arquivo. O `echo` fornece o conteúdo, o pipe (`|`) encaminha o texto para o `tee`, e o `sudo` permite escrever no diretório protegido do servidor.
 
-Os dois métodos permitem modificar o arquivo, mas funcionam de maneiras diferentes. O Nano é útil para editar manualmente; o Echo com Tee é prático para gravar um conteúdo diretamente por comando.
+Os dois métodos permitem alterar o mesmo arquivo de maneiras diferentes. Aprendi também que editar o User Data após a criação da instância não significa que o script será executado automaticamente em uma reinicialização comum.
 
-**Aprendizados:** configuração do User Data, acesso remoto via SSH com PuTTY, edição de arquivos Linux com Nano, gravação de arquivos com Echo e Tee e atualização de uma página hospedada no Apache.
+**Aprendizados:** User Data, acesso remoto via SSH com PuTTY, edição de arquivos com Nano e gravação de conteúdo com Echo e Tee.
 
 **Evidências:** capturas de tela 8, 9, 10 e 11.
 
