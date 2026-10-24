@@ -102,6 +102,8 @@ Criação de uma página HTML com CSS para apresentar os estudos práticos em co
 
 ![Página personalizada](screenshots/11.custom_web_page.png)
 
+Visite aqui: https://brunogacarvalho.github.io/lab-11-introducao-ec2/
+
 ## 6. Tecnologias utilizadas
 
 - Amazon EC2
