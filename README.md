@@ -82,8 +82,6 @@ Os dois métodos permitem alterar o mesmo arquivo de maneiras diferentes. Aprend
 
 **Aprendizados:** User Data, acesso remoto via SSH com PuTTY, edição de arquivos com Nano e gravação de conteúdo com Echo e Tee.
 
-**Evidências:** capturas de tela 8, 9, 10 e 11.
-
 ![Experimento com User Data](screenshots/8.user_data_after_restart.png)
 
 ### 5.2. Acesso remoto com PuTTY
