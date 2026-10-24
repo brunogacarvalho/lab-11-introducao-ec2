@@ -56,9 +56,33 @@ Teste da proteção contra encerramento da instância. A tentativa de encerramen
 
 Além das atividades principais, foram realizados experimentos para investigar o comportamento da instância e praticar o acesso remoto ao Linux.
 
-### 5.1. User Data após reinicialização
+### 5.1. Alteração do User Data após a criação da instância
 
-Investigação do comportamento do User Data após alterações no script e reinicialização da instância.
+Após criar a instância EC2, editei o User Data para incluir meu nome na página inicial do servidor. Porém, a alteração não apareceu após reiniciar a instância, pois o User Data não é executado novamente por padrão em cada reinicialização.
+
+Para resolver o problema, acessei a instância remotamente pelo PuTTY, utilizando SSH, e alterei diretamente o arquivo HTML servido pelo Apache.
+
+**Método 1: edição com Nano**
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+Esse comando abre o arquivo HTML para edição manual. Após modificar o conteúdo, utilizei os comandos de teclado do Nano para salvar o arquivo e sair do editor.
+
+**Método 2: gravação com Echo e Tee**
+
+```bash
+echo '<html><h1>Olá, eu sou Bruno Carvalho.</h1></html>' | sudo tee /var/www/html/index.html
+```
+
+Esse método grava diretamente o conteúdo no arquivo. O `echo` fornece o texto, o pipe (`|`) encaminha esse texto para o `tee`, e o `sudo` permite gravar no diretório protegido do servidor.
+
+Os dois métodos permitem modificar o arquivo, mas funcionam de maneiras diferentes. O Nano é útil para editar manualmente; o Echo com Tee é prático para gravar um conteúdo diretamente por comando.
+
+**Aprendizados:** configuração do User Data, acesso remoto via SSH com PuTTY, edição de arquivos Linux com Nano, gravação de arquivos com Echo e Tee e atualização de uma página hospedada no Apache.
+
+**Evidências:** capturas de tela 8, 9, 10 e 11.
 
 ![Experimento com User Data](screenshots/8.user_data_after_restart.png)
 
