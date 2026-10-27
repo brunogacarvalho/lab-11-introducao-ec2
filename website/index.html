@@ -99,7 +99,116 @@
             </div>
         </section>
     </main>
+    <section class="flashcards-section">
+  <span class="section-number">08</span>
+  <h2>Flashcards — Revise o que aprendeu</h2>
+  <p>Teste seus conhecimentos sobre o Amazon EC2 e as atividades deste laboratório.</p>
 
+  <div class="flashcard">
+    <span class="flashcard-counter" id="card-counter">1 de 8</span>
+    <span class="flashcard-label">PERGUNTA</span>
+    <h3 id="card-question">O que é o Amazon EC2?</h3>
+
+    <div class="flashcard-answer" id="card-answer" hidden>
+      <span class="flashcard-label">RESPOSTA</span>
+      <p id="card-answer-text"></p>
+    </div>
+
+    <button type="button" class="reveal-button" id="reveal-answer">
+      Revelar resposta
+    </button>
+  </div>
+
+  <div class="flashcard-navigation">
+    <button type="button" id="previous-card" aria-label="Cartão anterior">
+      ← Anterior
+    </button>
+    <button type="button" id="next-card" aria-label="Próximo cartão">
+      Próximo →
+    </button>
+  </div>
+</section>
+
+<script>
+const flashcards = [
+  {
+    question: "O que é o Amazon EC2?",
+    answer: "É um serviço da AWS que fornece capacidade de computação redimensionável na nuvem para executar servidores virtuais."
+  },
+  {
+    question: "O que é uma AMI?",
+    answer: "É uma imagem que fornece as informações necessárias para iniciar uma instância, incluindo o sistema operacional e outros componentes."
+  },
+  {
+    question: "Qual é a função de um Security Group?",
+    answer: "Atuar como um firewall virtual, controlando o tráfego de entrada e saída da instância."
+  },
+  {
+    question: "Por que o servidor web não abriu inicialmente no navegador?",
+    answer: "Porque o Security Group não permitia tráfego de entrada pela porta 80, utilizada pelo HTTP."
+  },
+  {
+    question: "Para que serve o Amazon CloudWatch?",
+    answer: "Monitorar métricas da instância EC2 para acompanhar seu desempenho e ajudar a identificar problemas."
+  },
+  {
+    question: "O que fazer antes de alterar o tipo da instância?",
+    answer: "Parar a instância e aguardar até que seu estado seja stopped."
+  },
+  {
+    question: "Qual é a diferença entre t3.micro e t3.small neste laboratório?",
+    answer: "A t3.small possui o dobro de memória da t3.micro."
+  },
+  {
+    question: "Para que serve a Termination Protection?",
+    answer: "Evitar o encerramento acidental da instância. É necessário desabilitar essa proteção antes de encerrá-la."
+  }
+];
+
+let currentCard = 0;
+
+const questionElement = document.getElementById("card-question");
+const answerElement = document.getElementById("card-answer");
+const answerTextElement = document.getElementById("card-answer-text");
+const counterElement = document.getElementById("card-counter");
+const revealButton = document.getElementById("reveal-answer");
+const previousButton = document.getElementById("previous-card");
+const nextButton = document.getElementById("next-card");
+
+function showCard() {
+  const card = flashcards[currentCard];
+
+  questionElement.textContent = card.question;
+  answerTextElement.textContent = card.answer;
+  counterElement.textContent = `${currentCard + 1} de ${flashcards.length}`;
+
+  answerElement.hidden = true;
+  revealButton.hidden = false;
+  previousButton.disabled = currentCard === 0;
+  nextButton.disabled = currentCard === flashcards.length - 1;
+}
+
+revealButton.addEventListener("click", () => {
+  answerElement.hidden = false;
+  revealButton.hidden = true;
+});
+
+previousButton.addEventListener("click", () => {
+  if (currentCard > 0) {
+    currentCard--;
+    showCard();
+  }
+});
+
+nextButton.addEventListener("click", () => {
+  if (currentCard < flashcards.length - 1) {
+    currentCard++;
+    showCard();
+  }
+});
+
+showCard();
+</script>
     <footer>
         <div class="container">
             Bruno Carvalho | Projeto de aprendizagem em Cloud Computing
