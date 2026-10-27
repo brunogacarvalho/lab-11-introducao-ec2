@@ -235,3 +235,11 @@ footer {
     gap: 10px;
   }
 }
+
+.flashcards-section {
+  text-align: center;
+}
+
+.flashcards-section > p {
+  text-align: center;
+}
