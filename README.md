@@ -131,3 +131,9 @@ Os experimentos adicionais também envolveram a investigação do User Data, o a
 ## 9. Observação
 
 Este repositório reúne a documentação e as evidências visuais do laboratório, além de experimentos adicionais realizados para aprofundar o aprendizado. As capturas de tela registram as etapas e os resultados observados durante essas atividades.
+
+## Revisão interativa
+
+A página do laboratório também conta com **flashcards interativos** para revisar os principais pontos da prática com o Amazon EC2, incluindo configuração da instância, acesso HTTP pelo Security Group, alteração do tipo da instância e do volume EBS e proteção contra encerramento (*Termination Protection*). Cada cartão apresenta uma pergunta, permite revelar a resposta e navegar entre os cartões para revisar o conteúdo do laboratório.
+
+Página: https://brunogacarvalho.github.io/lab-11-introducao-ec2/
