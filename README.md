@@ -137,3 +137,11 @@ Este repositório reúne a documentação e as evidências visuais do laboratór
 A página do laboratório também conta com **flashcards interativos** para revisar os principais pontos da prática com o Amazon EC2, incluindo configuração da instância, acesso HTTP pelo Security Group, alteração do tipo da instância e do volume EBS e proteção contra encerramento (*Termination Protection*). Cada cartão apresenta uma pergunta, permite revelar a resposta e navegar entre os cartões para revisar o conteúdo do laboratório.
 
 Página: https://brunogacarvalho.github.io/lab-11-introducao-ec2/
+
+---
+
+**Professor:** [Raphael Ohlsen](https://www.linkedin.com/in/raphael-ohlsen/)
+
+**Instituição:** [Escola da Nuvem](https://escoladanuvem.org/) | [LinkedIn](https://www.linkedin.com/school/escola-da-nuvem/)
+
+*Laboratório realizado como parte da formação em Computação em Nuvem AWS.*
